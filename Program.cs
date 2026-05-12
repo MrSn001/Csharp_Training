@@ -188,11 +188,13 @@ namespace BankingServices
                         Console.WriteLine("");
                         Console.Write("Select module:");
                         Console.WriteLine("");
-
+                        //Bonus While loop
                         while (moduleOption != 0)
                         {
+                            //Bonus Switch
                             switch (moduleOption)
                             {
+                                //Task 2 - 5 ATM Services
                                 case 1:
                                     Console.WriteLine("""
                                     === ATM SERVICES ===
@@ -201,8 +203,10 @@ namespace BankingServices
                                     3) Opening Hours
                                     0) Back to Main Menu
                                     """);
+                                    //ATM Service While loop
                                     while (atmServiceOption != 0)
                                     {
+                                        //Task 2 ATM Welcome & Display
                                         switch (atmServiceOption)
                                         {
                                             case 1:
