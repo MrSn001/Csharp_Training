@@ -29,7 +29,8 @@ namespace BankingServices
             double avgBalance = 0.000;
 
             int option = 1;
-
+            int moduleOption = 1;
+            int atmServiceOption = 1;
 
             //System Options
             Console.WriteLine("");
@@ -165,6 +166,55 @@ namespace BankingServices
                         break;
                     case 0:
                         Console.WriteLine("Setup complete. Launching Main Menu...");
+                        /////////////////////////////////////////////////////////////////////////
+
+
+                        //Bonus:
+                        Console.WriteLine("");
+                        Console.WriteLine("=== NATIONAL BANK OF OMAN ===");
+                        Console.WriteLine("    Unified Banking System v1.0");
+                        Console.WriteLine("  --- System Setup complete ---  ");
+                        Console.WriteLine("  Customer :  " + holderName);
+                        Console.WriteLine("  Balance:  " + balance);
+                        Console.WriteLine(" 1) ATM Services");
+                        Console.WriteLine(" 2) Account Management");
+                        Console.WriteLine(" 3) Loan Services");
+                        Console.WriteLine(" 4) Currency Exchange");
+                        Console.WriteLine(" 5) Credit Card Portal");
+                        Console.WriteLine(" 6) Branch Services");
+                        Console.WriteLine(" 7) Reports & Admin");
+                        Console.WriteLine(" 0) Exit");
+                        Console.WriteLine("");
+                        Console.Write("Select module:");
+                        Console.WriteLine("");
+
+
+                        switch (moduleOption)
+                        {
+                            case 1:
+                                Console.WriteLine("""
+                                    === ATM SERVICES ===
+                                    1) Bank Info
+                                    2) Branch Info
+                                    3) Opening Hours
+                                    0) Back to Main Menu
+                                    """);
+
+                                switch (atmServiceOption)
+                                {
+                                    case 1:
+                                        break;
+                                }
+
+                                break;
+
+                            default:
+                                Console.WriteLine("Invalid selection!! please enter your choice again");
+                                break;
+                            case 0:
+                                Console.WriteLine("Thank you for using our system");
+                                break;
+                        }
                         break;
                     default:
                         Console.WriteLine("Invalid Option");
