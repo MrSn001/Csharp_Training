@@ -28,6 +28,7 @@ namespace BankingServices
             double annualRate = 0.000;
             double avgBalance = 0.000;
 
+            //Switch Options
             int option = 1;
             int moduleOption = 1;
             int atmServiceOption = 1;
@@ -188,33 +189,63 @@ namespace BankingServices
                         Console.Write("Select module:");
                         Console.WriteLine("");
 
-
-                        switch (moduleOption)
+                        while (moduleOption != 0)
                         {
-                            case 1:
-                                Console.WriteLine("""
+                            switch (moduleOption)
+                            {
+                                case 1:
+                                    Console.WriteLine("""
                                     === ATM SERVICES ===
                                     1) Bank Info
                                     2) Branch Info
                                     3) Opening Hours
                                     0) Back to Main Menu
                                     """);
+                                    while (atmServiceOption != 0)
+                                    {
+                                        switch (atmServiceOption)
+                                        {
+                                            case 1:
+                                                Console.WriteLine("""
+                                            Bank Name: National Bank of Oman,
+                                            Tagline:Unlocking Opportunities, As One.
+                                            Founding Year: 1973
+                                            """);
+                                                break;
+                                            case 2:
+                                                Console.WriteLine("""
+                                            Main Branch
+                                            City:Muscat
+                                            Address:Sultan Qaboos Rd, Azaiba, Muscat 112, Sultanate of Oman
+                                            """);
+                                                break;
+                                            case 3:
+                                                Console.WriteLine("""
+                                                sunday - tursday : 8:00 - 17:00
+                                                friday and saturday: Closed
+                                                """);
+                                                break;
+                                            case 0:
+                                                Console.WriteLine("Back to main menu.");
+                                                break;
+                                            default:
+                                                Console.WriteLine("Invalid selection!! please enter your choice again");
+                                                break;
+                                        }
+                                    }
 
-                                switch (atmServiceOption)
-                                {
-                                    case 1:
-                                        break;
-                                }
 
-                                break;
+                                    break;
 
-                            default:
-                                Console.WriteLine("Invalid selection!! please enter your choice again");
-                                break;
-                            case 0:
-                                Console.WriteLine("Thank you for using our system");
-                                break;
+                                default:
+                                    Console.WriteLine("Invalid selection!! please enter your choice again");
+                                    break;
+                                case 0:
+                                    Console.WriteLine("Thank you for using our system");
+                                    break;
+                            }
                         }
+
                         break;
                     default:
                         Console.WriteLine("Invalid Option");
