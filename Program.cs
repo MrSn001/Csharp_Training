@@ -1,4 +1,5 @@
-﻿using System.Security.Principal;
+﻿using System.Runtime.InteropServices;
+using System.Security.Principal;
 
 namespace BankingServices
 {
@@ -15,7 +16,7 @@ namespace BankingServices
             double balance = 0.000;
             bool isActive = false;
             char accountType = '-';
-
+            string isActiveStatus = "False";
             //Customer Profile Variables
             bool isEmployed = false;
             double salary = 0.000;
@@ -33,7 +34,7 @@ namespace BankingServices
             int moduleOption = 1;
             int atmServiceOption = 1;
             int atmWelcomeDisplay = 1;
-            int accountDataViewer;
+            int accountDataViewerOption;
 
 
             //System Options
@@ -90,11 +91,13 @@ namespace BankingServices
                         if (isActiveNum == 1)
                         {
                             isActive = true;
+                            isActiveStatus = "Active";
                             Console.WriteLine("Your account is active");
                         }
                         else if (isActiveNum == 0)
                         {
                             isActive = false;
+                            isActiveStatus = "inactive";
                             Console.WriteLine("Your account is not active");
                         }
                         else
@@ -203,6 +206,7 @@ namespace BankingServices
                                     //ATM Services While Loop
                                     while (atmServiceOption != 0)
                                     {
+                                        accountDataViewerOption = 1;
                                         atmWelcomeDisplay = 1;
                                         Console.WriteLine("");
                                         Console.WriteLine("""
@@ -275,8 +279,33 @@ namespace BankingServices
 
 
                                                 break;
-                                            //View Account Data
+                                            //Task 3 - View Account Data
                                             case 2:
+                                                //While loop account Data Viewer 
+                                                while (accountDataViewerOption != 0)
+                                                {
+                                                    Console.WriteLine("=== VIEW ACCOUNT DATA ===");
+                                                    Console.WriteLine("  Data loaded from system setup");
+                                                    Console.WriteLine("1) Account Number --->  " + accountNumber);
+                                                    Console.WriteLine("2) Holder Name    --->  " + holderName);
+                                                    Console.WriteLine("3) Balance        ---> " + balance);
+                                                    Console.WriteLine("4) Account Status ---> " + isActiveStatus);
+                                                    Console.WriteLine("5) Account Type   ---> " + accountType);
+                                                    Console.WriteLine("0) Back");
+
+                                                    Console.WriteLine("Select Field (0 To Exit): ");
+                                                    accountDataViewerOption = int.Parse(Console.ReadLine());
+                                                    //Account Data Viewer Switch
+                                                    switch (accountDataViewerOption)
+                                                    {
+                                                        case 0:
+                                                            Console.WriteLine("Back to main menu.");
+                                                            break;
+                                                        default:
+                                                            Console.WriteLine("Invalid selection!! please enter your choice again");
+                                                            break;
+                                                    }// END switch Account Data Viewer
+                                                }//End While Loop Account Datat Viewer
                                                 break;
                                             //ATM Pin Validation
                                             case 3:
