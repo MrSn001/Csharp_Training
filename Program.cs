@@ -35,6 +35,7 @@ namespace BankingServices
             int atmServiceOption = 1;
             int atmWelcomeDisplay = 1;
             int accountDataViewerOption;
+            int atmPinValidation;
 
 
             //System Options
@@ -206,8 +207,11 @@ namespace BankingServices
                                     //ATM Services While Loop
                                     while (atmServiceOption != 0)
                                     {
-                                        accountDataViewerOption = 1;
+                                       //Reseting the option value to re-enter the option 
                                         atmWelcomeDisplay = 1;
+                                        accountDataViewerOption = 1;
+                                        atmPinValidation = 1;
+
                                         Console.WriteLine("");
                                         Console.WriteLine("""
                                             === ATM SERVICES ===
@@ -307,10 +311,75 @@ namespace BankingServices
                                                     }// END switch Account Data Viewer
                                                 }//End While Loop Account Datat Viewer
                                                 break;
-                                            //ATM Pin Validation
+                                            /*Task 4 - ATM Pin Validation
+                                             Here I'm going to create a Pin Validation for the bank system
+                                             it will check the Entered pin by the user and it will compare it 
+                                             with the CORRECT_PIN if it was equal it will show a granted access
+                                             Message and print the name, else if the user entered more than or less 
+                                             than 4 digits it will give a message 'Invalid PIN format' and if the 
+                                             password was anything else it will give a message says 'Incorrect PIN.'
+                                             and it will decrease the number of attempts.
+
+                                             if number of attempts equals to 0 then the program will stop and takes
+                                             you back to the previous menu.
+                                             */
                                             case 3:
+                                                const int CORRECT_PIN = 4821;
+                                                //Atm pin validation while loop
+                                                while (atmPinValidation != 0)
+                                                {
+                                                    Console.WriteLine("""
+                                                        === AUTHENTICATION ===
+                                                        1) Enter PIN
+                                                        2) Forgot PIN
+                                                        0) Back
+
+                                                        """);
+                                                    Console.WriteLine("Select: ");
+                                                    atmPinValidation = int.Parse(Console.ReadLine());
+                                                    //Atm Pin Validation Switch
+                                                    switch (atmPinValidation)
+                                                    {
+                                                        //Enter PIN
+                                                        case 1:
+                                                            int numberOfAttempts = 3;
+                                                            while (numberOfAttempts != 0)
+                                                            {
+                                                                Console.WriteLine("Enter Pin: ");
+                                                                int enteredPin = int.Parse(Console.ReadLine());
+                                                                if (enteredPin == CORRECT_PIN)
+                                                                {
+                                                                    Console.WriteLine("Access granted. Welcome, " + holderName);
+                                                                    break;
+                                                                }
+                                                                else if (enteredPin.ToString().Length != 4)
+                                                                {
+                                                                    Console.WriteLine("Invalid PIN format.");
+                                                                   
+                                                                }
+                                                                else
+                                                                {
+                                                                    numberOfAttempts -= 1;
+                                                                    Console.WriteLine("Incorrect PIN.");
+                                                                }
+                                                            }
+                                                            break;
+                                                    
+                                                        //Forget PIN
+                                                        case 2:
+                                                            Console.WriteLine("Please visit the nearest branch with your National ID");
+                                                            break;
+                                                        //Go ack to main menu
+                                                        case 0:
+                                                            Console.WriteLine("Back to main menu.");
+                                                            break;
+                                                        default:
+                                                            Console.WriteLine("Invalid selection!! please enter your choice again");
+                                                            break;
+                                                    }// END Atm Pin Validation
+                                                }// END While Loop Atm pin validation
                                                 break;
-                                            // Authentication
+                                            // Task 5 - ATM Receipt Printer
                                             case 4:
                                                 break;
                                             default:
