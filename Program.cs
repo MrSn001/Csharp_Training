@@ -32,6 +32,9 @@ namespace BankingServices
             int option = 1;
             int moduleOption = 1;
             int atmServiceOption = 1;
+            int atmWelcomeDisplay = 1;
+            int accountDataViewer;
+
 
             //System Options
             Console.WriteLine("");
@@ -188,6 +191,7 @@ namespace BankingServices
                             Console.WriteLine(" 0) Exit");
                             Console.WriteLine("");
                             atmServiceOption = 1;
+                           
                             Console.Write("Select module: ");
                             moduleOption = int.Parse(Console.ReadLine());
                             //Bonus Switch
@@ -195,56 +199,100 @@ namespace BankingServices
                             {
                                 //Task 2 - 5 ATM Services
                                 case 1:
-                                    Console.WriteLine("");
-                                    Console.WriteLine("""
-                                    === ATM SERVICES ===
-                                    1) Bank Info
-                                    2) Branch Info
-                                    3) Opening Hours
-                                    0) Back to Main Menu
-                                    """);
-                                    //ATM Service While loop
+                                    
+                                    //ATM Services While Loop
                                     while (atmServiceOption != 0)
                                     {
+                                        atmWelcomeDisplay = 1;
                                         Console.WriteLine("");
-                                        Console.Write("Select: ");
-                                        Console.WriteLine("");
+                                        Console.WriteLine("""
+                                            === ATM SERVICES ===
+                                            1) ATM Welcome & Display
+                                            2) VIEW ACCOUNT DATA
+                                            3) AUTHENTICATION
+                                            4) PRINT RECEIPT
+                                            0) Exit
+                                            """);
+                                        Console.Write("Select Your Service Number: ");
                                         atmServiceOption = int.Parse(Console.ReadLine());
 
-                                        //Task 2 ATM Welcome & Display
+                                        // Switch ATM Services
                                         switch (atmServiceOption)
                                         {
+                                            // ATM Welcom & Display
                                             case 1:
+                                                Console.WriteLine("");
                                                 Console.WriteLine("""
-                                            Bank Name: National Bank of Oman,
-                                            Tagline:Unlocking Opportunities, As One.
-                                            Founding Year: 1973
-                                            """);
+                                                    === ATM Welcome & Display ===
+                                                    1) Bank Info
+                                                    2) Branch Info
+                                                    3) Opening Hours
+                                                    0) Back to Main Menu
+                                                    """);
+                                                //ATM Welcome & Display While loop
+                                                while (atmWelcomeDisplay != 0)
+                                                {
+                                                    Console.WriteLine("");
+                                                    Console.Write("Select Which Service You Need: ");
+                                                    Console.WriteLine("");
+                                                    atmWelcomeDisplay = int.Parse(Console.ReadLine());
+
+                                                    //Task 2 ATM Welcome & Display
+                                                    switch (atmWelcomeDisplay)
+                                                    {
+                                                        // Printing the Bank Info
+                                                        case 1:
+                                                            Console.WriteLine("""
+                                                                 Bank Name: National Bank of Oman,
+                                                                 Tagline:Unlocking Opportunities, As One.
+                                                                 Founding Year: 1973
+                                                                 """);
+                                                            break;
+                                                        // Printing the Branch Info
+                                                        case 2:
+                                                            Console.WriteLine("""
+                                                                Main Branch
+                                                                City:Muscat
+                                                                Address:Sultan Qaboos Rd, Azaiba, Muscat 112, Sultanate of Oman
+                                                                """);
+                                                            break;
+                                                        //Pringting the Opening Hours
+                                                        case 3:
+                                                            Console.WriteLine("""
+                                                                sunday - tursday : 8:00 - 17:00
+                                                                friday and saturday: Closed
+                                                                """);
+                                                            break;
+                                                        // Go Back to the main menu
+                                                        case 0:
+                                                            Console.WriteLine("Back to main menu.");
+                                                            break;
+                                                        default:
+                                                            Console.WriteLine("Invalid selection!! please enter your choice again");
+                                                            break;
+                                                    }
+                                                }// End while loop ATM Welcome & Display 
+
+
                                                 break;
+                                            //View Account Data
                                             case 2:
-                                                Console.WriteLine("""
-                                            Main Branch
-                                            City:Muscat
-                                            Address:Sultan Qaboos Rd, Azaiba, Muscat 112, Sultanate of Oman
-                                            """);
                                                 break;
+                                            //ATM Pin Validation
                                             case 3:
-                                                Console.WriteLine("""
-                                                sunday - tursday : 8:00 - 17:00
-                                                friday and saturday: Closed
-                                                """);
                                                 break;
-                                            case 0:
-                                                Console.WriteLine("Back to main menu.");
+                                            // Authentication
+                                            case 4:
                                                 break;
                                             default:
                                                 Console.WriteLine("Invalid selection!! please enter your choice again");
                                                 break;
-                                        }
-                                    }
+                                        }// End Switch ATM Services
 
-
+                                    }// End While loop ATM Services
+                                   
                                     break;
+                                
 
                                 default:
                                     Console.WriteLine("Invalid selection!! please enter your choice again");
@@ -257,7 +305,7 @@ namespace BankingServices
 
                         break;
                     default:
-                        Console.WriteLine("Invalid Option");
+                        Console.WriteLine("Invalid selection!! please enter your choice again");
                         break;
 
 
