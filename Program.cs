@@ -167,35 +167,35 @@ namespace BankingServices
                         break;
                     case 0:
                         Console.WriteLine("Setup complete. Launching Main Menu...");
-                        /////////////////////////////////////////////////////////////////////////
-
-
-                        //Bonus:
-                        Console.WriteLine("");
-                        Console.WriteLine("=== NATIONAL BANK OF OMAN ===");
-                        Console.WriteLine("    Unified Banking System v1.0");
-                        Console.WriteLine("  --- System Setup complete ---  ");
-                        Console.WriteLine("  Customer :  " + holderName);
-                        Console.WriteLine("  Balance:  " + balance);
-                        Console.WriteLine(" 1) ATM Services");
-                        Console.WriteLine(" 2) Account Management");
-                        Console.WriteLine(" 3) Loan Services");
-                        Console.WriteLine(" 4) Currency Exchange");
-                        Console.WriteLine(" 5) Credit Card Portal");
-                        Console.WriteLine(" 6) Branch Services");
-                        Console.WriteLine(" 7) Reports & Admin");
-                        Console.WriteLine(" 0) Exit");
-                        Console.WriteLine("");
-                        Console.Write("Select module:");
-                        Console.WriteLine("");
+                        ////////////////////////////////////////////////////////////////////////////////
                         //Bonus While loop
                         while (moduleOption != 0)
                         {
+                            //Bonus:
+                            Console.WriteLine("");
+                            Console.WriteLine("=== NATIONAL BANK OF OMAN ===");
+                            Console.WriteLine("    Unified Banking System v1.0");
+                            Console.WriteLine("  --- System Setup complete ---  ");
+                            Console.WriteLine("  Customer :  " + holderName);
+                            Console.WriteLine("  Balance:  " + balance);
+                            Console.WriteLine(" 1) ATM Services");
+                            Console.WriteLine(" 2) Account Management");
+                            Console.WriteLine(" 3) Loan Services");
+                            Console.WriteLine(" 4) Currency Exchange");
+                            Console.WriteLine(" 5) Credit Card Portal");
+                            Console.WriteLine(" 6) Branch Services");
+                            Console.WriteLine(" 7) Reports & Admin");
+                            Console.WriteLine(" 0) Exit");
+                            Console.WriteLine("");
+                            atmServiceOption = 1;
+                            Console.Write("Select module: ");
+                            moduleOption = int.Parse(Console.ReadLine());
                             //Bonus Switch
                             switch (moduleOption)
                             {
                                 //Task 2 - 5 ATM Services
                                 case 1:
+                                    Console.WriteLine("");
                                     Console.WriteLine("""
                                     === ATM SERVICES ===
                                     1) Bank Info
@@ -206,6 +206,11 @@ namespace BankingServices
                                     //ATM Service While loop
                                     while (atmServiceOption != 0)
                                     {
+                                        Console.WriteLine("");
+                                        Console.Write("Select: ");
+                                        Console.WriteLine("");
+                                        atmServiceOption = int.Parse(Console.ReadLine());
+
                                         //Task 2 ATM Welcome & Display
                                         switch (atmServiceOption)
                                         {
@@ -247,8 +252,8 @@ namespace BankingServices
                                 case 0:
                                     Console.WriteLine("Thank you for using our system");
                                     break;
-                            }
-                        }
+                            }//End Bonus Switch
+                        }//End Bonus while loop
 
                         break;
                     default:
@@ -256,10 +261,10 @@ namespace BankingServices
                         break;
 
 
-                }
-            }
-            
-                
+                }//System Setup Switch
+            }//System Setup While loop
+
+
         }
     }
 }
