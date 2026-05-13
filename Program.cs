@@ -578,7 +578,7 @@ namespace BankingServices
                                                 while (accountTypeInformation != 0) 
                                                 {
                                                     Console.WriteLine("""
-                                                                                                                === ACCOUNT TYPES ===
+                                                        === ACCOUNT TYPES ===
                                                         Your account type: S (Savings)
                                                         1) Savings Account
                                                         2) Current Account
@@ -590,20 +590,93 @@ namespace BankingServices
                                                     Console.WriteLine("");
                                                     Console.WriteLine("Select type:");
                                                     accountTypeInformation = int.Parse(Console.ReadLine());
+                                                    string accountTypeStr;
                                                     // Switch Account Type Inforamtion
                                                     switch (accountTypeInformation)
                                                     {
                                                         // Saving Account 
                                                         case 1:
+                                                            accountTypeStr = "Savings Account";
+                                                            double savingMinBalance = 100.000;
+                                                            double monthlyFee = 1.000;
+                                                            
+                                                            Console.Write(accountTypeStr + " | " + "Min: " + savingMinBalance + " OMR" + " | " + "Fee: " + monthlyFee + " OMR/Month");
+                                                  
+                                                            if (accountType == 'S')
+                                                            {
+                                                                Console.WriteLine("*** This is your account type ***");
+                                                            }
+                                                            if (savingMinBalance > 500)
+                                                            {
+                                                                Console.WriteLine("Requires manager approval");
+                                                            }
+                                                            else
+                                                            {
+                                                                Console.WriteLine("Can be opened at any branch.");
+                                                            }
                                                             break;
                                                         // Current Account
                                                         case 2:
+                                                            accountTypeStr = "Current Account";
+                                                            double currentMinBalance = 100.000;
+                                                            double monthlyCurrentFee = 1.000;
+
+                                                            Console.Write(accountTypeStr + " | " + "Min: " + currentMinBalance + " OMR" + " | " + "Fee: " + monthlyCurrentFee + " OMR/Month");
+
+                                                            if (accountType == 'C')
+                                                            {
+                                                                Console.WriteLine("*** This is your account type ***");
+                                                            }
+                                                            if (currentMinBalance > 500)
+                                                            {
+                                                                Console.WriteLine("Requires manager approval");
+                                                            }
+                                                            else
+                                                            {
+                                                                Console.WriteLine("Can be opened at any branch.");
+                                                            }
                                                             break;
                                                         // Fixed Deposit
-                                                        case 3: 
+                                                        case 3:
+                                                            accountTypeStr = "Fixed Account";
+                                                            double fixedMinBalance = 100.000;
+                                                            double monthlyFixedFee = 1.000;
+
+                                                            Console.Write(accountTypeStr + " | " + "Min: " + fixedMinBalance + " OMR" + " | " + "Fee: " + monthlyFixedFee + " OMR/Month");
+
+                                                            if (accountType == 'F')
+                                                            {
+                                                                Console.WriteLine("*** This is your account type ***");
+                                                            }
+                                                            if (fixedMinBalance > 500)
+                                                            {
+                                                                Console.WriteLine("Requires manager approval");
+                                                            }
+                                                            else
+                                                            {
+                                                                Console.WriteLine("Can be opened at any branch.");
+                                                            }
                                                             break;
                                                         // Junior Account
-                                                        case 4: 
+                                                        case 4:
+                                                            accountTypeStr = "Junior Account";
+                                                            double juniorMinBalance = 100.000;
+                                                            double monthlyJuniorFee = 1.000;
+
+                                                            Console.Write(accountTypeStr + " | " + "Min: " + juniorMinBalance + " OMR" + " | " + "Fee: " + monthlyJuniorFee + " OMR/Month");
+
+                                                            if (accountType == 'J')
+                                                            {
+                                                                Console.WriteLine("*** This is your account type ***");
+                                                            }
+                                                            if (juniorMinBalance > 500)
+                                                            {
+                                                                Console.WriteLine("Requires manager approval");
+                                                            }
+                                                            else
+                                                            {
+                                                                Console.WriteLine("Can be opened at any branch.");
+                                                            }
                                                             break;
                                                         // Back to Previous Menu
                                                         case 0:
