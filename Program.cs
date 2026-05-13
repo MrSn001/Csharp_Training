@@ -36,7 +36,7 @@ namespace BankingServices
             int atmWelcomeDisplay;
             int accountDataViewerOption;
             int atmPinValidation;
-            int atmReceiptPrinter;
+            int atmReceiptPrinterOption;
 
             //System Options
             Console.WriteLine("");
@@ -211,6 +211,7 @@ namespace BankingServices
                                         atmWelcomeDisplay = 1;
                                         accountDataViewerOption = 1;
                                         atmPinValidation = 1;
+                                        atmReceiptPrinterOption = 1;
 
                                         Console.WriteLine("");
                                         Console.WriteLine("""
@@ -411,6 +412,64 @@ namespace BankingServices
                                                 break;
                                             // Task 5 - ATM Receipt Printer
                                             case 4:
+                                                //Atm Receipt Printer While Loop
+                                                while(atmReceiptPrinterOption != 0)
+                                                {
+                                                    Console.WriteLine("""
+
+                                                        === PRINT RECEIPT ===
+                                                        1) Short Receipt
+                                                        2) Detailed Receipt
+                                                        3) Balance Only
+                                                        0) Back
+
+                                                        """);
+                                                    Console.Write("Select Format: ");
+                                                    atmReceiptPrinterOption = int.Parse(Console.ReadLine());
+                                                    //Atm Receipt Printer Switch
+                                                    switch (atmReceiptPrinterOption)
+                                                    {
+                                                        case 1:
+                                                            string accountStr = accountNumber.ToString();
+                                                            string masked = accountStr.Substring(accountStr.Length - 4).PadLeft(accountStr.Length, '*');
+                                                            Console.WriteLine("Account Number: " + masked);
+                                                            Console.WriteLine("Holder Name: " + holderName);
+                                                            Console.WriteLine($"Balance: {balance:F3}");
+                                                            break;
+
+                                                        case 2:
+                                                            accountStr = accountNumber.ToString();
+                                                            masked = accountStr.Substring(accountStr.Length - 4).PadLeft(accountStr.Length, '*');
+                                                            Console.WriteLine("Account Number: " + masked);
+                                                            Console.WriteLine("Holder Name: " + holderName);
+                                                            Console.WriteLine($"Balance: {balance:F3} " + " OMR");
+                                                            Console.WriteLine("Account Active?: " + isActiveStatus);
+                                                            Console.WriteLine("Account Type: " + accountType);
+                                                            
+                                                            Console.WriteLine("Employed?: " + isEmployed);
+                                                            Console.WriteLine($"Monthly Salary: {salary:F3} " + " OMR");
+                                                            Console.WriteLine("Credit Score" + creditScore);
+                                                            Console.WriteLine("Age" + age);
+                                 
+                                                            Console.WriteLine($"Last Deposit Amount: {deposit:F3}"  + " OMR");
+                                                            Console.WriteLine($"Last Withdrawal: {withdrawal:F3}" + " OMR");
+                                                            Console.WriteLine("Annual Interest Rate: " + annualRate);
+                                                            Console.WriteLine($"Avg Monthly Balance: {avgBalance:F3}" + " OMR");
+
+                                                            break;
+
+                                                        case 3:
+                                                            Console.WriteLine($"Balance: {balance:F3}");
+                                                            break;
+                                                        case 0:
+                                                            Console.WriteLine("Back to main menu.");
+                                                            break;
+                                                        default:
+                                                            Console.WriteLine("Invalid selection!! please enter your choice again");
+                                                            break;
+                                                    } // END Switch Atm Receipt Printer
+
+                                                }// END Atm Receipt Printer While Loop
 
                                                 break;
                                             default:
