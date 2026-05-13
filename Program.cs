@@ -32,11 +32,11 @@ namespace BankingServices
             //Switch Options
             int option = 1;
             int moduleOption = 1;
-            int atmServiceOption = 1;
-            int atmWelcomeDisplay = 1;
+            int atmServiceOption;
+            int atmWelcomeDisplay;
             int accountDataViewerOption;
             int atmPinValidation;
-
+            int atmReceiptPrinter;
 
             //System Options
             Console.WriteLine("");
@@ -302,6 +302,34 @@ namespace BankingServices
                                                     //Account Data Viewer Switch
                                                     switch (accountDataViewerOption)
                                                     {
+                                                        case 1:
+                                                            Console.WriteLine("");
+                                                            Console.WriteLine("Here your Account Number: " + accountNumber);
+                                                            Console.WriteLine("");
+                                                            break;
+                                                        case 2:
+                                                            Console.WriteLine("");
+                                                            Console.WriteLine("This is the holder name: " + holderName);
+                                                            Console.WriteLine("");
+                                                            break;
+                                                        case 3:
+                                                            Console.WriteLine("");
+                                                            Console.WriteLine("Your balance is: " + balance);
+                                                            Console.WriteLine("");
+                                                            break;
+
+                                                        case 4:
+                                                            Console.WriteLine("");
+                                                            Console.WriteLine("your account is: " + isActiveStatus);
+                                                            Console.WriteLine("");
+                                                            break;
+
+                                                        case 5:
+                                                            Console.WriteLine("");
+                                                            Console.WriteLine("your Account type is: " + accountType);
+                                                            Console.WriteLine("");
+                                                            break;
+
                                                         case 0:
                                                             Console.WriteLine("Back to main menu.");
                                                             break;
@@ -311,8 +339,10 @@ namespace BankingServices
                                                     }// END switch Account Data Viewer
                                                 }//End While Loop Account Datat Viewer
                                                 break;
-                                            /*Task 4 - ATM Pin Validation
-                                             Here I'm going to create a Pin Validation for the bank system
+
+                                            //Task 4 - ATM Pin Validation
+
+                                             /*Here I'm going to create a Pin Validation for the bank system
                                              it will check the Entered pin by the user and it will compare it 
                                              with the CORRECT_PIN if it was equal it will show a granted access
                                              Message and print the name, else if the user entered more than or less 
@@ -381,6 +411,7 @@ namespace BankingServices
                                                 break;
                                             // Task 5 - ATM Receipt Printer
                                             case 4:
+
                                                 break;
                                             default:
                                                 Console.WriteLine("Invalid selection!! please enter your choice again");
