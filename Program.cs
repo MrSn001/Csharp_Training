@@ -40,6 +40,9 @@ namespace BankingServices
             int accountManagementOption;
             int transactionCalculatorOption;
             int accountTypeInformation;
+            int loanEligibilityChecker;
+
+
 
             //System Options
             Console.WriteLine("");
@@ -495,6 +498,7 @@ namespace BankingServices
                                         
                                         transactionCalculatorOption = 1;
                                         accountTypeInformation = 1;
+                                        loanEligibilityChecker = 1;
                                         Console.WriteLine("");
                                         Console.WriteLine("""
                                             1)Transaction Calculator
@@ -688,8 +692,67 @@ namespace BankingServices
                                                     }//End Switch Account Type Information
                                                 }// END While Loop Account Type Information 
                                                 break;
-                                            //Loan Eligibility Checker
+                                            //Task 8 - Loan Eligibility Checker
                                             case 3:
+                                                //Loan Eligibility Checker While Loop
+                                                while (loanEligibilityChecker != 0 )
+                                                {
+                                                    Console.WriteLine($"""
+                                                        === LOAN ELIGIBILITY ===
+                                                        Holder: {holderName} | Salary: {salary} | Score: {creditScore} | Age: {age}
+                                                        1) Personal Loan
+                                                        2) Car Loan
+                                                        3) Home Loan
+                                                        0) Back
+                                                        """);
+                                                    Console.WriteLine("");
+                                                    Console.WriteLine("Selelct Loan Type: ");
+                                                    loanEligibilityChecker = int.Parse(Console.ReadLine());
+                                                    //Loan Eligibility Checker Switch
+                                                    switch(loanEligibilityChecker)
+                                                    {
+                                                        //Personal Loan
+                                                        case 1:
+                                                            if (isEmployed == true && salary >= 400 && creditScore > 650)
+                                                            {
+                                                                Console.WriteLine("Eligible — application accepted");
+                                                            }
+                                                            else
+                                                            {
+                                                                Console.WriteLine("Not eligible.");
+                                                            }
+                                                            break;
+                                                        //Car Loan
+                                                        case 2:
+                                                            if (isEmployed == true && salary >= 600 && age >= 21)
+                                                            {
+                                                                Console.WriteLine("Eligible — application accepted");
+                                                            }
+                                                            else
+                                                            {
+                                                                Console.WriteLine("Not eligible.");
+                                                            }
+                                                            break;
+                                                        //Home Loan
+                                                        case 3:
+                                                            if (isEmployed == true && salary >= 1000 && creditScore > 700 && age >= 25)
+                                                            {
+                                                                Console.WriteLine("Eligible — application accepted");
+                                                            }
+                                                            else
+                                                            {
+                                                                Console.WriteLine("Not eligible.");
+                                                            }
+                                                            break;
+                                                        // Back to the Previous Menu
+                                                        case 0:
+                                                            Console.WriteLine("Back to the Previous Menu.");
+                                                            break;
+                                                        default:
+                                                            Console.WriteLine("Loan product not offered.");
+                                                            break;
+                                                    }// END Switch Loan Eligibility Checker Switch
+                                                }//END While Loop Loan Eligibility Checker
                                                 break;
 
                                             case 0:
