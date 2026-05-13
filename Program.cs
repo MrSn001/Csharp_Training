@@ -37,6 +37,9 @@ namespace BankingServices
             int accountDataViewerOption;
             int atmPinValidation;
             int atmReceiptPrinterOption;
+            int accountManagementOption;
+            int transactionCalculatorOption;
+
 
             //System Options
             Console.WriteLine("");
@@ -194,8 +197,10 @@ namespace BankingServices
                             Console.WriteLine(" 7) Reports & Admin");
                             Console.WriteLine(" 0) Exit");
                             Console.WriteLine("");
+                            //Reseting the Options to re-enter
                             atmServiceOption = 1;
-                           
+                            accountManagementOption = 1;
+
                             Console.Write("Select module: ");
                             moduleOption = int.Parse(Console.ReadLine());
                             //Bonus Switch
@@ -434,7 +439,7 @@ namespace BankingServices
                                                             string masked = accountStr.Substring(accountStr.Length - 4).PadLeft(accountStr.Length, '*');
                                                             Console.WriteLine("Account Number: " + masked);
                                                             Console.WriteLine("Holder Name: " + holderName);
-                                                            Console.WriteLine($"Balance: {balance:F3}");
+                                                            Console.WriteLine($"Balance: {balance:N3}");
                                                             break;
 
                                                         case 2:
@@ -442,24 +447,24 @@ namespace BankingServices
                                                             masked = accountStr.Substring(accountStr.Length - 4).PadLeft(accountStr.Length, '*');
                                                             Console.WriteLine("Account Number: " + masked);
                                                             Console.WriteLine("Holder Name: " + holderName);
-                                                            Console.WriteLine($"Balance: {balance:F3} " + " OMR");
+                                                            Console.WriteLine($"Balance: {balance:N3} " + " OMR");
                                                             Console.WriteLine("Account Active?: " + isActiveStatus);
                                                             Console.WriteLine("Account Type: " + accountType);
                                                             
                                                             Console.WriteLine("Employed?: " + isEmployed);
-                                                            Console.WriteLine($"Monthly Salary: {salary:F3} " + " OMR");
+                                                            Console.WriteLine($"Monthly Salary: {salary:N3} " + " OMR");
                                                             Console.WriteLine("Credit Score" + creditScore);
                                                             Console.WriteLine("Age" + age);
                                  
-                                                            Console.WriteLine($"Last Deposit Amount: {deposit:F3}"  + " OMR");
-                                                            Console.WriteLine($"Last Withdrawal: {withdrawal:F3}" + " OMR");
+                                                            Console.WriteLine($"Last Deposit Amount: {deposit:N3}"  + " OMR");
+                                                            Console.WriteLine($"Last Withdrawal: {withdrawal:N3}" + " OMR");
                                                             Console.WriteLine("Annual Interest Rate: " + annualRate);
-                                                            Console.WriteLine($"Avg Monthly Balance: {avgBalance:F3}" + " OMR");
+                                                            Console.WriteLine($"Avg Monthly Balance: {avgBalance:N3}" + " OMR");
 
                                                             break;
 
                                                         case 3:
-                                                            Console.WriteLine($"Balance: {balance:F3}");
+                                                            Console.WriteLine($"Balance: {balance:N3}");
                                                             break;
                                                         case 0:
                                                             Console.WriteLine("Back to main menu.");
@@ -480,8 +485,110 @@ namespace BankingServices
                                     }// End While loop ATM Services
                                    
                                     break;
-                                
 
+                                //Tasks 6 - 8 Account Management
+                                case 2:
+
+                                    //Account Management While Loop
+                                    while (accountManagementOption != 0)
+                                    {
+                                        transactionCalculatorOption = 1;
+                                        Console.WriteLine("");
+                                        Console.WriteLine("""
+                                            1)Transaction Calculator
+                                            2)Account Type Information
+                                            3)Loan Eligibility Checker
+                                            0)Back To Main Menu
+                                            """);
+                                        Console.WriteLine("");
+                                        accountManagementOption = int.Parse(Console.ReadLine());
+                                        //Account Management Switch
+                                        switch (accountManagementOption)
+                                        {
+                                            //Transaction Calculator
+                                            case 1:
+                                                // While Loop Transaction Calculator
+                                                while (transactionCalculatorOption != 0)
+                                                {
+                                                    Console.WriteLine("");
+                                                    Console.WriteLine("""
+                                                         === TRANSACTION CALCULATOR ===
+
+                                                          Using: balance=12,500.000 deposit=1,500.000 rate=3.5%
+
+                                                         1) Balance After Deposit
+                                                         2) Balance After Withdrawal
+                                                         3) Annual Interest Earned
+                                                         4) Net Balance Change
+                                                         0) Back
+                                                         
+                                                         """);
+                                                    Console.WriteLine("");
+                                                    Console.WriteLine("Select Calculation: ");
+                                                    transactionCalculatorOption = int.Parse(Console.ReadLine());
+                                                    //Switch Transaction Calculator
+                                                    switch (transactionCalculatorOption)
+                                                    {
+                                                        //Balance After Deposit
+                                                        case 1:
+                                                            Console.WriteLine($"Your new balance after deposit = {(balance + deposit):N3}" + " OMR" );
+                                                            break;
+                                                        //Balance After Withdrawal
+                                                        case 2:
+                                                            Console.WriteLine($"Your new balance after withdrawal = {(balance - withdrawal):N3}" + " OMR");
+                                                            break;
+                                                        //Annual Interest Earned
+                                                        case 3:
+                                                            double interest = balance * annualRate;
+                                                            Console.WriteLine("The rate applied: " + annualRate);
+                                                            Console.WriteLine($"Your annual interest = {interest:N3}" + " OMR");
+                                                            break;
+                                                        //Net Balance Change
+                                                        case 4:
+                                                            double net = deposit - withdrawal;
+                                                            if (net >= 0)
+                                                            {
+                                                                Console.WriteLine("");
+                                                                Console.WriteLine("Surplus");
+                                                                Console.WriteLine("");
+                                                            }
+                                                            else
+                                                            {
+                                                                Console.WriteLine("");
+                                                                Console.WriteLine("Deficit");
+                                                                Console.WriteLine("");
+                                                            }
+                                                            break;
+                                                        //Back To the Previous Menu
+                                                        case 0:
+                                                            Console.WriteLine("Back to the Previous Menu.");
+                                                            break;
+                                                        default:
+                                                            Console.WriteLine("Calculation not available.");
+                                                            break;
+
+                                                    }// END Switch Transaction Calculator
+                                                }// END While Loop Transaction Calculator
+                                                break;
+                                            //Account Type Information
+                                            case 2:
+
+                                                break;
+                                            //Loan Eligibility Checker
+                                            case 3:
+                                                break;
+
+                                            case 0:
+                                                Console.WriteLine("Back to main menu.");
+                                                break;
+                                            default:
+                                                Console.WriteLine("Invalid selection!! please enter your choice again");
+                                                break;
+                                        }//END Switch Account Management
+                                    }//END While Loop Account Management
+
+                                    break;//END Of Tasks 6 - 8 
+                                          
                                 default:
                                     Console.WriteLine("Invalid selection!! please enter your choice again");
                                     break;
