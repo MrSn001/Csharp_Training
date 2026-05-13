@@ -39,7 +39,7 @@ namespace BankingServices
             int atmReceiptPrinterOption;
             int accountManagementOption;
             int transactionCalculatorOption;
-
+            int accountTypeInformation;
 
             //System Options
             Console.WriteLine("");
@@ -492,7 +492,9 @@ namespace BankingServices
                                     //Account Management While Loop
                                     while (accountManagementOption != 0)
                                     {
+                                        
                                         transactionCalculatorOption = 1;
+                                        accountTypeInformation = 1;
                                         Console.WriteLine("");
                                         Console.WriteLine("""
                                             1)Transaction Calculator
@@ -505,7 +507,7 @@ namespace BankingServices
                                         //Account Management Switch
                                         switch (accountManagementOption)
                                         {
-                                            //Transaction Calculator
+                                            //Task 6 - Transaction Calculator
                                             case 1:
                                                 // While Loop Transaction Calculator
                                                 while (transactionCalculatorOption != 0)
@@ -570,9 +572,48 @@ namespace BankingServices
                                                     }// END Switch Transaction Calculator
                                                 }// END While Loop Transaction Calculator
                                                 break;
-                                            //Account Type Information
+                                            //Task 7 - Account Type Information
                                             case 2:
-
+                                                // Account Type Information While loop
+                                                while (accountTypeInformation != 0) 
+                                                {
+                                                    Console.WriteLine("""
+                                                                                                                === ACCOUNT TYPES ===
+                                                        Your account type: S (Savings)
+                                                        1) Savings Account
+                                                        2) Current Account
+                                                        3) Fixed Deposit
+                                                        4) Junior Account
+                                                        0) Back
+                                                        
+                                                        """);
+                                                    Console.WriteLine("");
+                                                    Console.WriteLine("Select type:");
+                                                    accountTypeInformation = int.Parse(Console.ReadLine());
+                                                    // Switch Account Type Inforamtion
+                                                    switch (accountTypeInformation)
+                                                    {
+                                                        // Saving Account 
+                                                        case 1:
+                                                            break;
+                                                        // Current Account
+                                                        case 2:
+                                                            break;
+                                                        // Fixed Deposit
+                                                        case 3: 
+                                                            break;
+                                                        // Junior Account
+                                                        case 4: 
+                                                            break;
+                                                        // Back to Previous Menu
+                                                        case 0:
+                                                            Console.WriteLine("Back to the Previous Menu.");
+                                                            break;
+                                                        default:
+                                                            Console.WriteLine("Account type not offered.");
+                                                            break;
+                                                    }//End Switch Account Type Information
+                                                }// END While Loop Account Type Information 
                                                 break;
                                             //Loan Eligibility Checker
                                             case 3:
