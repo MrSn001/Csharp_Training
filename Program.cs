@@ -41,8 +41,8 @@ namespace BankingServices
             int transactionCalculatorOption;
             int accountTypeInformation;
             int loanEligibilityChecker;
-
-
+            int loanServicesOption;
+            int atmWithdrawalGate;
 
             //System Options
             Console.WriteLine("");
@@ -203,7 +203,7 @@ namespace BankingServices
                             //Reseting the Options to re-enter
                             atmServiceOption = 1;
                             accountManagementOption = 1;
-
+                            loanServicesOption = 1;
                             Console.Write("Select module: ");
                             moduleOption = int.Parse(Console.ReadLine());
                             //Bonus Switch
@@ -765,7 +765,83 @@ namespace BankingServices
                                     }//END While Loop Account Management
 
                                     break;//END Of Tasks 6 - 8 
-                                          
+
+                                //Tasks 9 - 11 Loan Services
+                                case 3:
+                                    //Loan Services
+                                    // Loan Services Option While Loop
+                                    while (loanServicesOption != 1)
+                                    {
+                                        Console.WriteLine("""
+                                            ====Loan Services Menu====
+                                            1)ATM Withdrawal Gate
+                                            2)Transaction Fee Board
+                                            3)Loan Repayment Calculator
+                                            0)Back 
+                                            """);
+                                        Console.WriteLine("");
+                                        Console.WriteLine("Select Your Loan Service: ");
+                                        loanServicesOption = int.Parse(Console.ReadLine());
+
+                                        atmWithdrawalGate = 1;
+                                        // Switch Loan Services
+                                        switch (loanServicesOption)
+                                        {
+
+                                            case 1:
+                                                // Atm Withdrawal Gate While Loop 
+                                                const int MAX_WITHDRAWAL = 5000;
+                                                while (atmWithdrawalGate != 0)
+                                                {
+                                                    Console.WriteLine($"""
+                                                                       === ATM TRANSACTION ===
+                                                        Holder: {holderName} | Balance: {balance} OMR
+                                                        1) Check Balance
+                                                        2) Withdraw
+                                                        3) Deposit
+                                                        0) Back to Main Menu 
+                                                        """);
+                                                    Console.WriteLine("Select: ");
+                                                    atmWithdrawalGate = int.Parse(Console.ReadLine());
+
+                                                    switch (atmWithdrawalGate)
+                                                    {
+                                                        case 1:
+                                                            Console.WriteLine("");
+                                                            Console.WriteLine("Your current Balance is: " + balance);
+                                                            Console.WriteLine("");
+                                                            break;
+                                                        case 2:
+                                                            
+                                                            break;
+                                                        case 3:
+                                                            break;
+                                                        case 0:
+                                                            Console.WriteLine("Back to main menu.");
+                                                            break;
+                                                        default:
+                                                            Console.WriteLine("Invalid selection!! please enter your choice again");
+                                                            break;
+
+                                                    }// END Switch ATM Withdrawal Gate
+                                                }//END While Loop ATM Withdrawal Gate 
+                                                break;
+                                            //Transaction Fee Board
+                                            case 2:
+                                                break;
+                                            //Loan Repayment Calculator
+                                            case 3:
+                                                break;
+                                            //back to main menu
+                                            case 0:
+                                                Console.WriteLine("Back to main menu.");
+                                                break;
+                                            default:
+                                                Console.WriteLine("Invalid selection!! please enter your choice again");
+                                                break;
+                                        }// END Switch Loan Services
+                                    }// END Loan Services While Loop
+                                    break;
                                 default:
                                     Console.WriteLine("Invalid selection!! please enter your choice again");
                                     break;
