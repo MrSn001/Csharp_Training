@@ -124,9 +124,9 @@
 
                             """);
                             Console.WriteLine("Enter your choice: ");
-                            patientManagementSystem = Convert.ToInt32(Console.ReadLine());
+                            doctroManagementSystem = Convert.ToInt32(Console.ReadLine());
 
-                            switch (patientManagementSystem)
+                            switch (doctroManagementSystem)
                             {
                                 case 1:
                                     Console.WriteLine("1. Add New Doctor ");
@@ -154,7 +154,12 @@
 
                     // Appointment Management 
                     case 3:
-                        Console.WriteLine("""
+                        //Appointment Do while loop
+                        appointmentFlag = false;
+                        do
+                        {
+
+                            Console.WriteLine("""
                             ╔══════════════════════════════════════╗
                             ║ APPOINTMENT MANAGEMENT               ║
                             ╠══════════════════════════════════════╣
@@ -166,6 +171,39 @@
                             ╚══════════════════════════════════════╝
 
                             """);
+                            Console.WriteLine("Enter your choice: ");
+                            appointmentManagementSystem = Convert.ToInt32(Console.ReadLine());
+                             
+                            // Switch Appointment Management System
+                            switch (appointmentManagementSystem)
+                            {
+                                //Book New Appointment 
+                                case 1:
+                                    Console.WriteLine("1. Book New Appointment  ");
+                                    break;
+                                //Display All Appointments
+                                case 2:
+                                    Console.WriteLine("2. Display All Appointments ");
+                                    break;
+                                //Update Appointment Status
+                                case 3:
+                                    Console.WriteLine("3. Update Appointment Status");
+                                    break;
+                                //Cancel Appointment
+                                case 4:
+                                    Console.WriteLine("4. Cancel Appointment");
+                                    break;
+                                //Back to Main Menu
+                                case 0:
+                                    Console.WriteLine("Back to Main Menu");
+                                    appointmentFlag = true;
+                                    break;
+                                default:
+                                    Console.WriteLine("Invalid Option");
+                                    break;
+                            }// END Appointment Management System
+
+                        } while (appointmentFlag != true); // END Do while loop 
                         break;
 
                     //Stoping the system
