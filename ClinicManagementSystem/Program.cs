@@ -203,12 +203,39 @@
                                     break;
                                 //Delete Patient
                                 case 4:
-                                    Console.WriteLine("4. Delete Patient");
+                                    Console.WriteLine("Enter the patient name to update: ");
+                                    name = Console.ReadLine();
+                                    if (p1Active && p1Name == name)
+                                    {
+                                        p1Name = ""; p1Age = 0; p1Phone = "";
+                                        patientCount--;
+                                        p1Active = false;
+                                        Console.WriteLine("Patient Deleted!!");
+                                    }
+                                    else if(p2Active && p2Name == name)
+                                    {
+                                        p2Name = ""; p2Age = 0; p2Phone = "";
+                                        patientCount--;
+                                        p2Active = false;
+                                        Console.WriteLine("Patient Deleted!!");
+                                    }
+                                    else if( p3Active && p3Name == name)
+                                    {
+                                        p3Name = ""; p3Age = 0; p3Phone = "";
+                                        patientCount--;
+                                        p2Active = false;
+                                        Console.WriteLine("Patient Deleted!!");
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Patient not found");
+                                    }
                                     break;
                                 //Back to Main Menu
                                 case 0:
                                     Console.WriteLine("Back to Main Menu");
                                     patientFlag = true;
+                                    Console.Clear();
                                     break;
                                 default:
                                     Console.WriteLine("Invalid Option");
@@ -257,6 +284,7 @@
                                 case 0:
                                     Console.WriteLine("Back to Main Menu");
                                     doctorFlag = true;
+                                    Console.Clear();
                                     break;
                                 default:
                                     Console.WriteLine("Invalid Option");
@@ -312,6 +340,7 @@
                                 case 0:
                                     Console.WriteLine("Back to Main Menu");
                                     appointmentFlag = true;
+                                    Console.Clear();
                                     break;
                                 default:
                                     Console.WriteLine("Invalid Option");
