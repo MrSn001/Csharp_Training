@@ -27,15 +27,20 @@
             ""; bool a3Active = false;
             int appointmentCount = 0;
 
-            bool flag = false;
+            bool clinicFlag;
+            bool patientFlag;
+            bool doctorFlag;
+            bool appointmentFlag;
             int clinicManagementSystem;
+            int patientManagementSystem;
+            int doctroManagementSystem;
+            int appointmentManagementSystem;
 
-
-            // Region 1:
+            // Region 2 — Main Menu: the outer while loop + switch-case
             //Starting Do While Loop - Clinic Mnagement System 
             do
             {
-                flag = false;
+                clinicFlag = false;
                 Console.WriteLine("""
 
                     ╔══════════════════════════════════════╗
@@ -55,7 +60,11 @@
                 {
                     // Patient Management
                     case 1:
-                        Console.WriteLine("""
+                        patientFlag = false;
+                        do
+                        {
+                           
+                            Console.WriteLine("""
                             ╔══════════════════════════════════════╗
                             ║ PATIENT MANAGEMENT                   ║
                             ╠══════════════════════════════════════╣
@@ -67,6 +76,33 @@
                             ╚══════════════════════════════════════╝
 
                             """);
+                            Console.WriteLine("Enter your choice: ");
+                            patientManagementSystem = Convert.ToInt32(Console.ReadLine());
+
+                            switch (patientManagementSystem)
+                            {
+                                case 1:
+                                    Console.WriteLine("1. Add New Patient ");
+                                    break;
+                                case 2:
+                                    Console.WriteLine("2. Display All Patients");
+                                    break;
+                                case 3:
+                                    Console.WriteLine("3. Update Patient Phone");
+                                    break;
+                                case 4:
+                                    Console.WriteLine("4. Delete Patient");
+                                    break;
+                                case 0:
+                                    Console.WriteLine("Back to Main Menu");
+                                    patientFlag = true;
+                                    break;
+                                default:
+                                    Console.WriteLine("Invalid Option");
+                                    break;
+                            }
+
+                        } while (patientFlag != true);
                         break;
 
                     // Doctor Management
@@ -105,7 +141,7 @@
                     //Stoping the system
                     case 0:
                         Console.WriteLine("Thank you for using our system.");
-                        flag = true;
+                        clinicFlag = true;
                         break;
 
                     default:
@@ -113,7 +149,7 @@
                         break;
                 }
 
-            } while (flag != true);// END do while loop - Clinic Mnagement System 
+            } while (clinicFlag != true);// END do while loop - Clinic Mnagement System 
 
 
 
