@@ -29,7 +29,99 @@
 
             bool flag = false;
             int clinicManagementSystem;
-           
+
+
+            // Region 1:
+            //Starting Do While Loop - Clinic Mnagement System 
+            do
+            {
+                flag = false;
+                Console.WriteLine("""
+
+                    ╔══════════════════════════════════════╗
+                    ║ CLINIC MANAGEMENT SYSTEM             ║
+                    ╠══════════════════════════════════════╣
+                    ║ 1. Patient Management                ║
+                    ║ 2. Doctor Management                 ║
+                    ║ 3. Appointment Management            ║
+                    ║ 0. Exit                              ║
+                    ╚══════════════════════════════════════╝
+
+                    Enter your choice: 
+                    """);
+                clinicManagementSystem = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("");
+                switch (clinicManagementSystem)
+                {
+                    // Patient Management
+                    case 1:
+                        Console.WriteLine("""
+                            ╔══════════════════════════════════════╗
+                            ║ PATIENT MANAGEMENT                   ║
+                            ╠══════════════════════════════════════╣
+                            ║ 1. Add New Patient                   ║
+                            ║ 2. Display All Patients              ║
+                            ║ 3. Update Patient Phone              ║
+                            ║ 4. Delete Patient                    ║
+                            ║ 0. Back to Main Menu                 ║
+                            ╚══════════════════════════════════════╝
+
+                            """);
+                        break;
+
+                    // Doctor Management
+                    case 2:
+                        Console.WriteLine("""
+
+                            ╔══════════════════════════════════════╗
+                            ║ DOCTOR MANAGEMENT                    ║
+                            ╠══════════════════════════════════════╣
+                            ║ 1. Add New Doctor                    ║
+                            ║ 2. Display All Doctors               ║
+                            ║ 3. Update Consultation Fee           ║
+                            ║ 4. Delete Doctor                     ║
+                            ║ 0. Back to Main Menu                 ║
+                            ╚══════════════════════════════════════╝
+
+                            """);
+                        break;
+
+                    // Appointment Management 
+                    case 3:
+                        Console.WriteLine("""
+                            ╔══════════════════════════════════════╗
+                            ║ APPOINTMENT MANAGEMENT               ║
+                            ╠══════════════════════════════════════╣
+                            ║ 1. Book New Appointment              ║
+                            ║ 2. Display All Appointments          ║
+                            ║ 3. Update Appointment Status         ║
+                            ║ 4. Cancel Appointment                ║
+                            ║ 0. Back to Main Menu                 ║
+                            ╚══════════════════════════════════════╝
+
+                            """);
+                        break;
+
+                    //Stoping the system
+                    case 0:
+                        Console.WriteLine("Thank you for using our system.");
+                        flag = true;
+                        break;
+
+                    default:
+                        Console.WriteLine("Invalid Choice");
+                        break;
+                }
+
+            } while (flag != true);// END do while loop - Clinic Mnagement System 
+
+
+
+
+
+
+
+
         }
     }
 }
