@@ -42,6 +42,7 @@
             int doctroManagementSystem;
             int appointmentManagementSystem;
             int displayNum = 0;
+            string newPhone;
 
             // Region 2 — Main Menu: the outer while loop + switch-case
             //Starting Do While Loop - Clinic Mnagement System 
@@ -172,7 +173,33 @@
                                     break;
                                 //Update Patient Phone
                                 case 3:
-                                    Console.WriteLine("3. Update Patient Phone");
+                                    Console.WriteLine("Enter the patient name to update: ");
+                                    name = Console.ReadLine();
+                                    if(p1Active && p1Name == name)
+                                    {
+                                        Console.WriteLine("Enter your new phone number");
+                                        newPhone = Console.ReadLine();
+                                        p1Phone = newPhone;
+                                        Console.WriteLine("Updated!!");
+                                    }
+                                    else if (p2Active && p2Name == name)
+                                    {
+                                        Console.WriteLine("Enter your new phone number");
+                                        newPhone = Console.ReadLine();
+                                        p2Phone = newPhone;
+                                        Console.WriteLine("Updated!!");
+                                    }
+                                    else if (p3Active && p3Name == name)
+                                    {
+                                        Console.WriteLine("Enter your new phone number");
+                                        newPhone = Console.ReadLine();
+                                        p3Phone = newPhone;
+                                        Console.WriteLine("Updated!!");
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Patient not found.");
+                                    }
                                     break;
                                 //Delete Patient
                                 case 4:
