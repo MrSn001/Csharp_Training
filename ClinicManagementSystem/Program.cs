@@ -41,6 +41,7 @@
             int patientManagementSystem;
             int doctroManagementSystem;
             int appointmentManagementSystem;
+            int displayNum = 0;
 
             // Region 2 — Main Menu: the outer while loop + switch-case
             //Starting Do While Loop - Clinic Mnagement System 
@@ -141,7 +142,33 @@
                                     break;
                                 //Display All Patients
                                 case 2:
-                                    Console.WriteLine("2. Display All Patients");
+                                    if (patientCount == 0)
+                                    {
+                                        Console.WriteLine("No patients registered.");
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        if (p1Active)
+                                        {
+                                            displayNum++;
+                                            Console.WriteLine("Patient#" + displayNum + " || Patient Name: " 
+                                                + p1Name + " || Patient Age: " + p1Age + " || Patient Phone Number: " + p1Phone);
+                                        }
+                                        if (p2Active)
+                                        {
+                                            displayNum++;
+                                            Console.WriteLine("Patient#" + displayNum + " || Patient Name: "
+                                                + p2Name + " || Patient Age: " + p2Age + " || Patient Phone Number: " + p2Phone);
+                                        }
+                                        if (p3Active)
+                                        {
+                                            displayNum++;
+                                            Console.WriteLine("Patient#" + displayNum + " || Patient Name: "
+                                                + p3Name + " || Patient Age: " + p3Age + " || Patient Phone Number: " + p3Phone);
+                                        }
+                                    }
+                                    displayNum = 0;
                                     break;
                                 //Update Patient Phone
                                 case 3:
