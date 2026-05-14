@@ -107,8 +107,11 @@
 
                     // Doctor Management
                     case 2:
-                        Console.WriteLine("""
+                        doctorFlag = false;
+                        do
+                        {
 
+                            Console.WriteLine("""
                             ╔══════════════════════════════════════╗
                             ║ DOCTOR MANAGEMENT                    ║
                             ╠══════════════════════════════════════╣
@@ -120,6 +123,33 @@
                             ╚══════════════════════════════════════╝
 
                             """);
+                            Console.WriteLine("Enter your choice: ");
+                            patientManagementSystem = Convert.ToInt32(Console.ReadLine());
+
+                            switch (patientManagementSystem)
+                            {
+                                case 1:
+                                    Console.WriteLine("1. Add New Doctor ");
+                                    break;
+                                case 2:
+                                    Console.WriteLine("2. Display All Doctors");
+                                    break;
+                                case 3:
+                                    Console.WriteLine("3. Update Consultation Fee");
+                                    break;
+                                case 4:
+                                    Console.WriteLine("4. Delete Doctor");
+                                    break;
+                                case 0:
+                                    Console.WriteLine("Back to Main Menu");
+                                    doctorFlag = true;
+                                    break;
+                                default:
+                                    Console.WriteLine("Invalid Option");
+                                    break;
+                            }
+
+                        } while (doctorFlag != true);
                         break;
 
                     // Appointment Management 
