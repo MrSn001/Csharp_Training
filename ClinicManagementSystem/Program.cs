@@ -27,6 +27,12 @@
             ""; bool a3Active = false;
             int appointmentCount = 0;
 
+            //Adding Patient Variables
+            string name;
+            int age;
+            string phone; 
+
+
             bool clinicFlag;
             bool patientFlag;
             bool doctorFlag;
@@ -38,6 +44,7 @@
 
             // Region 2 — Main Menu: the outer while loop + switch-case
             //Starting Do While Loop - Clinic Mnagement System 
+            Console.Clear();
             do
             {
                 clinicFlag = false;
@@ -60,7 +67,9 @@
                 {
                     // Patient Management
                     case 1:
+                        Console.Clear();
                         patientFlag = false;
+                        //While do loop Patient Management System
                         do
                         {
                            
@@ -78,21 +87,71 @@
                             """);
                             Console.WriteLine("Enter your choice: ");
                             patientManagementSystem = Convert.ToInt32(Console.ReadLine());
-
+                            //Switch Patient Management System
                             switch (patientManagementSystem)
                             {
+                                //Add New Patient
                                 case 1:
-                                    Console.WriteLine("1. Add New Patient ");
+                                    //Check if there is available slots to add new patient
+                                    if (patientCount == MAX_PATIENTS)
+                                    {
+                                        Console.WriteLine("");
+                                        Console.WriteLine("Clinic is full. Cannot add more patients.");
+                                        Console.WriteLine("");
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Enter your Name: ");
+                                        name = Console.ReadLine();
+                                        if (name == "")
+                                        { 
+                                            Console.WriteLine("Error, Name can't be empty!!");
+                                            break; 
+                                        }
+                                        Console.WriteLine("Enter your Age: ");
+                                        age = Convert.ToInt32(Console.ReadLine());
+                                        if (age < 1 || age > 120)
+                                        {
+                                            Console.WriteLine("Error, Age should be greater than 1 and less than 120!!");
+                                            break;
+                                        }
+                                        Console.WriteLine("Enter your Phone: ");
+                                        phone = Console.ReadLine();
+
+                                        if (!p1Active)
+                                        {
+                                            p1Name = name; p1Age = age; p1Phone = phone; p1Active = true;
+                                        }
+                                        else if (!p2Active)
+                                        {
+                                            p2Name = name; p2Age = age; p2Phone = phone; p2Active = true;
+                                        }
+                                        else if (!p3Active)
+                                        {
+                                            p3Name = name; p3Age = age; p3Phone = phone; p3Active = true;
+                                        }
+
+                                        patientCount++;
+                                        Console.WriteLine("");
+                                        Console.WriteLine("Patient added successfully.");
+                                        Console.Clear();
+
+                                    }
                                     break;
+                                //Display All Patients
                                 case 2:
                                     Console.WriteLine("2. Display All Patients");
                                     break;
+                                //Update Patient Phone
                                 case 3:
                                     Console.WriteLine("3. Update Patient Phone");
                                     break;
+                                //Delete Patient
                                 case 4:
                                     Console.WriteLine("4. Delete Patient");
                                     break;
+                                //Back to Main Menu
                                 case 0:
                                     Console.WriteLine("Back to Main Menu");
                                     patientFlag = true;
@@ -100,13 +159,14 @@
                                 default:
                                     Console.WriteLine("Invalid Option");
                                     break;
-                            }
+                            }//END Patient Management System
 
-                        } while (patientFlag != true);
+                        } while (patientFlag != true); // END Patient Management System
                         break;
 
                     // Doctor Management
                     case 2:
+                        Console.Clear();
                         doctorFlag = false;
                         do
                         {
@@ -155,6 +215,7 @@
                     // Appointment Management 
                     case 3:
                         //Appointment Do while loop
+                        Console.Clear();
                         appointmentFlag = false;
                         do
                         {
