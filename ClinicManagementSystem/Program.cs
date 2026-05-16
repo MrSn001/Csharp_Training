@@ -441,7 +441,20 @@
                             {
                                 //Book New Appointment 
                                 case 1:
-                                    Console.WriteLine("1. Book New Appointment  ");
+                                    if (appointmentCount == MAX_APPOINTMENTS)
+                                    {
+                                        Console.WriteLine("No available appointment slots.");
+                                        break;
+                                    }
+                                    else if (patientCount == 0 || doctorCount == 0)
+                                    {
+                                        Console.WriteLine("Please add patients and doctors first"); 
+                                        break;
+                                    }
+                                    else
+                                    {
+
+                                    }
                                     break;
                                 //Display All Appointments
                                 case 2:
