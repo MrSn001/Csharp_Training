@@ -41,7 +41,7 @@
             bool patientFlag;
             bool doctorFlag;
             bool appointmentFlag;
-
+            //////////////////////////////////////
             int clinicManagementSystem;
             int patientManagementSystem;
             int doctroManagementSystem;
@@ -49,6 +49,14 @@
             int displayNum = 0;
             string newPhone;
             double newFee;
+
+            //Appointment variable
+            int patientChoice;
+            int doctorChoice;
+            string chosenPatient = "";
+            string chosenDoctor = "";
+            string date;
+            
 
             // Region 2 — Main Menu: the outer while loop + switch-case
             //Starting Do While Loop - Clinic Mnagement System 
@@ -453,6 +461,155 @@
                                     }
                                     else
                                     {
+                                        
+
+                                        if (p1Active)
+                                        {
+                                            
+                                            Console.WriteLine(" 1. Patient Name: "
+                                                + p1Name + " || Patient Age: " + p1Age + " || Patient Phone Number: " + p1Phone);
+                                        }
+                                        if (p2Active)
+                                        {
+                                            
+                                            Console.WriteLine("2. Patient Name: "
+                                                + p2Name + " || Patient Age: " + p2Age + " || Patient Phone Number: " + p2Phone);
+                                        }
+                                        if (p3Active)
+                                        {
+                                            
+                                            Console.WriteLine("3. Patient Name: "
+                                                + p3Name + " || Patient Age: " + p3Age + " || Patient Phone Number: " + p3Phone);
+                                        }
+
+                                       
+                                        Console.WriteLine("");
+                                        Console.WriteLine("Enter the patient number: ");
+                                        patientChoice = Convert.ToInt32(Console.ReadLine());
+                                        Console.WriteLine("");
+
+                                        switch (patientChoice)
+                                        {
+                                            //Patient 1 Choice: 
+                                            case 1:
+                                                if (p1Active)
+                                                {
+                                                    chosenPatient = p1Name;
+                                                    
+                                                }
+                                                else
+                                                {
+                                                    Console.WriteLine("This patient is not Active!!");
+                                                    
+                                                }
+                                                break;
+                                            //Patient 2 Choice: 
+                                            case 2:
+                                                if (p2Active)
+                                                {
+                                                    chosenPatient = p2Name;
+
+                                                }
+                                                else
+                                                {
+                                                    Console.WriteLine("This patient is not Active!!");
+
+                                                }
+                                                break;
+                                            //Patient 3 Choice: 
+                                            case 3:
+                                                if (p3Active)
+                                                {
+                                                    chosenPatient = p3Name;
+
+                                                }
+                                                else
+                                                {
+                                                    Console.WriteLine("This patient is not Active!!");
+
+                                                }
+                                                break;
+
+                                            default:
+                                                Console.WriteLine("Invalid Choice!!");
+                                                break;
+                                        }
+
+                                        
+
+                                        if (d1Active)
+                                        {
+                                            displayNum++;
+                                            Console.WriteLine( "1. Doctor Name: "
+                                                + d1Name + " || Doctor Specilization: " + d1Spec + " || Doctor Fee: " + d1Fee);
+                                        }
+                                        if (d2Active)
+                                        {
+                                            displayNum++;
+                                            Console.WriteLine("2. Doctor Name: "
+                                                   + d2Name + " || Doctor Specilization: " + d2Spec + " || Doctor Fee: " + d2Fee);
+                                        }
+
+
+                                        Console.WriteLine("");
+                                        Console.WriteLine("Enter the doctor number: ");
+                                        patientChoice = Convert.ToInt32(Console.ReadLine());
+                                        Console.WriteLine("");
+
+                                        switch (patientChoice)
+                                        {
+                                            //Doctor 1 Choice: 
+                                            case 1:
+                                                if (d1Active)
+                                                {
+                                                    chosenDoctor = d1Name;
+
+                                                }
+                                                else
+                                                {
+                                                    Console.WriteLine("This Doctor is not Active!!");
+
+                                                }
+                                                break;
+                                            //Doctor 2 Choice: 
+                                            case 2:
+                                                if (d2Active)
+                                                {
+                                                    chosenDoctor = d2Name;
+
+                                                }
+                                                else
+                                                {
+                                                    Console.WriteLine("This Doctor is not Active!!");
+
+                                                }
+                                                break;
+
+                                            default:
+                                                Console.WriteLine("Invalid Choice!!");
+                                                break;
+                                        }
+
+
+                                        Console.WriteLine("Enter the apointment date DD/MM/YYYY: ");
+                                        date = Console.ReadLine();
+
+                                        if (a1Active && a1Patient == chosenPatient && a1Doctor == chosenDoctor && a1Date == date)
+                                        {
+                                            Console.WriteLine("Duplicate appointment.");
+                                        }
+                                        else if (a2Active && a2Patient == chosenPatient && a2Doctor == chosenDoctor && a2Date == date)
+                                        {
+                                            Console.WriteLine("Duplicate appointment.");
+                                        }
+                                        else if (a3Active && a3Patient == chosenPatient && a3Doctor == chosenDoctor && a3Date == date)
+                                        {
+                                            Console.WriteLine("Duplicate appointment.");
+                                        }
+                                        else
+                                        {
+                                           
+                                        }
 
                                     }
                                     break;
