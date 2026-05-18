@@ -668,7 +668,42 @@
                                     break;
                                 //Update Appointment Status
                                 case 3:
-                                    Console.WriteLine("3. Update Appointment Status");
+
+                                    if (appointmentCount == 0)
+                                    {
+                                        Console.WriteLine("No appointments booked.");
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        if (a1Active)
+                                        {
+                                            displayNum++;
+                                            Console.WriteLine("Appointment#" + displayNum + " || Patient Name: "
+                                                + a1Patient + " || Doctor Name: " + a1Doctor + " || Appointment Date: " + a1Date +
+                                                " || Appointment Status: " + a1Status);
+                                        }
+
+                                        if (a2Active)
+                                        {
+                                            displayNum++;
+                                            Console.WriteLine("Appointment#" + displayNum + " || Patient Name: "
+                                                + a2Patient + " || Doctor Name: " + a2Doctor + " || Appointment Date: " + a2Date +
+                                                " || Appointment Status: " + a2Status);
+
+                                        }
+                                        if (a3Active)
+                                        {
+                                            displayNum++;
+                                            Console.WriteLine("Appointment#" + displayNum + " || Patient Name: "
+                                                + a3Patient + " || Doctor Name: " + a3Doctor + " || Appointment Date: " + a3Date +
+                                                " || Appointment Status: " + a3Status);
+                                        }
+                                    }
+
+                                    
+
+                                    displayNum = 0;
                                     break;
                                 //Cancel Appointment
                                 case 4:
