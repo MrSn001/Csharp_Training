@@ -60,7 +60,7 @@
 
             // Region 2 — Main Menu: the outer while loop + switch-case
             //Starting Do While Loop - Clinic Mnagement System 
-            Console.Clear();
+           
             do
             {
                 clinicFlag = false;
@@ -151,7 +151,7 @@
                                         patientCount++;
                                         Console.WriteLine("");
                                         Console.WriteLine("Patient added successfully.");
-                                        Console.Clear();
+                                       
 
                                     }
                                     break;
@@ -255,6 +255,7 @@
                                     Console.WriteLine("Invalid Option");
                                     break;
                             }//END Patient Management System
+ 
 
                         } while (patientFlag != true); // END Patient Management System
                         break;
@@ -417,6 +418,7 @@
                                     Console.WriteLine("Invalid Option");
                                     break;
                             }
+
 
                         } while (doctorFlag != true);
                         break;
@@ -608,7 +610,23 @@
                                         }
                                         else
                                         {
-                                           
+                                            if (!a1Active)
+                                            {
+                                                a1Patient = chosenPatient; a1Doctor = chosenDoctor; 
+                                                a1Date = date; a1Status = "Scheduled"; a1Active = true;
+                                            }
+                                            else if (!a2Active)
+                                            {
+                                                a2Patient = chosenPatient; a2Doctor = chosenDoctor;
+                                                a2Date = date; a2Status = "Scheduled"; a2Active = true;
+                                            }
+                                            else if (!a3Active)
+                                            {
+                                                a3Patient = chosenPatient; a3Doctor = chosenDoctor;
+                                                a3Date = date; a3Status = "Scheduled"; a3Active = true;
+                                            }
+                                            appointmentCount ++;
+                                            Console.WriteLine("Appointment booked.");
                                         }
 
                                     }
@@ -636,6 +654,8 @@
                                     break;
                             }// END Appointment Management System
 
+                            
+
                         } while (appointmentFlag != true); // END Do while loop 
                         break;
 
@@ -650,6 +670,9 @@
                         break;
                 }
 
+                Console.WriteLine("Press any key to continue....");
+                Console.ReadKey();
+                Console.Clear();
             } while (clinicFlag != true);// END do while loop - Clinic Mnagement System 
 
 
